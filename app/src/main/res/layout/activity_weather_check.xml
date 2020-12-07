@@ -4,58 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".WeatherCheckActivity">
 
     <TextView
-        android:id="@+id/todayDate"
+        android:id="@+id/tomorrowDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Сегодня"
+        android:text="Завтра"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/mainCity"
+        app:layout_constraintBottom_toTopOf="@+id/cityCheck"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/mainCity"
+        android:id="@+id/cityCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Город: Челябинск"
+        android:text="Город: "
         android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/mainTemp"
+        app:layout_constraintBottom_toTopOf="@+id/tempCheck"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/mainWeather"
+        android:id="@+id/weatherCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Погода: Солнечно"
+        android:text="Погода:"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/mainTemp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainCity" />
+        app:layout_constraintBottom_toTopOf="@+id/tempCheck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cityCheck" />
 
     <TextView
-        android:id="@+id/mainTemp"
+        android:id="@+id/tempCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Температура: - 16 C"
+        android:text="Температура: "
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@id/btnWeatherCheck"
+        app:layout_constraintBottom_toTopOf="@+id/btnMainActivity"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainCity" />
+        app:layout_constraintTop_toBottomOf="@id/cityCheck"/>
 
     <Button
-        android:id="@+id/btnWeatherCheck"
+        android:id="@+id/btnMainActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Check Tomorrow Weather"
+        android:text="Back"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
