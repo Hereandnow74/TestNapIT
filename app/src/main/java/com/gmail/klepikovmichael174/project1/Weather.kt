@@ -1,5 +1,7 @@
 package com.gmail.klepikovmichael174.project1
 
-import java.io.Serializable
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-data class Weather (val city: String, val weath: String, val temp: String) : Serializable
+@Parcelize
+data class Weather (val cityName: String, val cityWeath: String, val cityTemp: String) : Parcelable

@@ -1,65 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/todayDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Сегодня"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/mainCity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/mainCity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Город: Челябинск"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toTopOf="@+id/mainTemp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/mainWeather"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Погода: Солнечно"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/mainTemp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainCity" />
-
-    <TextView
-        android:id="@+id/mainTemp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Температура: - 16 C"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@id/btnWeatherCheck"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainCity" />
-
-    <Button
-        android:id="@+id/btnWeatherCheck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Check Tomorrow Weather"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:layout_height="match_parent"/>
