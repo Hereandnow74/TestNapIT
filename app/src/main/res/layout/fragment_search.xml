@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feature.search.SearchFragment">
+
+
+    <EditText
+        android:id="@+id/etTempFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Температура от"
+        android:textSize="20dp"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/etTempTo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/etTempTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Температура до"
+        android:textSize="20dp"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/rgType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/rgType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/rbSunny"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Солнечно"
+            android:textSize="16dp"/>
+
+        <RadioButton
+            android:id="@+id/rbRainy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Дождь"
+            android:textSize="16dp"/>
+
+        <RadioButton
+            android:id="@+id/rbSnowy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Снег"
+            android:textSize="16dp"/>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Поиск"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

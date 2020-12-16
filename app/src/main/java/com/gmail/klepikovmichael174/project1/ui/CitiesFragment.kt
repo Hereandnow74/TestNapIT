@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.gmail.klepikovmichael174.project1.R
 import com.gmail.klepikovmichael174.project1.Weather
+import com.gmail.klepikovmichael174.project1.feature.search.SearchFragment
 import kotlinx.android.synthetic.main.fragment_cities.*
 import kotlinx.android.synthetic.main.fragment_weather_details.*
 
@@ -28,6 +29,13 @@ class CitiesFragment : Fragment(R.layout.fragment_cities) {
             requireFragmentManager().beginTransaction()
                 .replace(R.id.container, AllCitiesFragment())
                 .addToBackStack("AllCitiesFragment")
+                .commit()
+        }
+
+        btnGoToSearch.setOnClickListener{
+            requireFragmentManager().beginTransaction()
+                .replace(R.id.container, SearchFragment())
+                .addToBackStack("SearchFragment")
                 .commit()
         }
     }
