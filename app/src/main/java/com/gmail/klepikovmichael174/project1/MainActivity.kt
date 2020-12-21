@@ -1,10 +1,8 @@
 package com.gmail.klepikovmichael174.project1
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.gmail.klepikovmichael174.project1.ui.CitiesFragment
-import kotlinx.android.synthetic.main.activity_main.*
+import com.gmail.klepikovmichael174.project1.feature.topCities.ui.TopCitiesFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         val fragmentManager = supportFragmentManager
 
         fragmentManager.beginTransaction()
-            .add(R.id.container, CitiesFragment())
+            .add(R.id.container, TopCitiesFragment())
             .commit()
     }
 }
