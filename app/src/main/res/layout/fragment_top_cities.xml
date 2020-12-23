@@ -11,6 +11,16 @@
         android:layout_height="match_parent" />
 
     <Button
+        android:id="@+id/btnGoToFavorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Favorites"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/btnGoToSearch"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
         android:id="@+id/btnGoToSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

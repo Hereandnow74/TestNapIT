@@ -8,8 +8,8 @@ import com.gmail.klepikovmichael174.project1.Weather
 import com.gmail.klepikovmichael174.project1.feature.search.presentation.SearchFragment
 import com.gmail.klepikovmichael174.project1.feature.topCities.presentation.TopCitiesPresenter
 import com.gmail.klepikovmichael174.project1.feature.topCities.presentation.TopCitiesView
-import com.gmail.klepikovmichael174.project1.ui.AllCitiesFragment
-import com.gmail.klepikovmichael174.project1.ui.WeatherDetailsFragment
+import com.gmail.klepikovmichael174.project1.feature.detail.ui.WeatherDetailsFragment
+import com.gmail.klepikovmichael174.project1.feature.favorites.ui.FavoritesFragment
 import kotlinx.android.synthetic.main.fragment_top_cities.*
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
@@ -29,6 +29,10 @@ class TopCitiesFragment : MvpAppCompatFragment(R.layout.fragment_top_cities), To
                 .replace(R.id.container, SearchFragment())
                 .addToBackStack("SearchFragment")
                 .commit()
+        }
+
+        btnGoToFavorites.setOnClickListener {
+            presenter.onFavoritesClick()
         }
 
         with(rvTopCities) {
@@ -57,6 +61,13 @@ class TopCitiesFragment : MvpAppCompatFragment(R.layout.fragment_top_cities), To
         requireFragmentManager().beginTransaction()
             .replace(R.id.container, WeatherDetailsFragment.newInstance(weather))
             .addToBackStack("WeatherDetailsFragment")
+            .commit()
+    }
+
+    override fun openFavoritesScreen(){
+        requireFragmentManager().beginTransaction()
+            .replace(R.id.container, FavoritesFragment())
+            .addToBackStack("FavoritesFragment")
             .commit()
     }
 

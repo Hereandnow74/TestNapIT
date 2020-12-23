@@ -21,9 +21,11 @@ class TopCitiesPresenter : MvpPresenter<TopCitiesView>() {
     }
 
     fun onCityClick(weather: Weather) {
-//        viewState.openWeatherDetails(weather)
-        weathers = weathers.filter { it != weather }
-        viewState.setWeathers(weathers)
+        viewState.openWeatherDetails(weather)
+    }
+
+    fun onFavoritesClick() {
+        viewState.openFavoritesScreen()
     }
 }
 
@@ -35,5 +37,6 @@ interface TopCitiesView : MvpView {
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun openWeatherDetails(weather: Weather)
 
-
+    @StateStrategyType(OneExecutionStateStrategy::class)
+    fun openFavoritesScreen()
 }
