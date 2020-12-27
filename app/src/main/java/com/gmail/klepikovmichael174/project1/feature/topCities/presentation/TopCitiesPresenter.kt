@@ -1,23 +1,33 @@
 package com.gmail.klepikovmichael174.project1.feature.topCities.presentation
 
+import android.util.Log
 import com.gmail.klepikovmichael174.project1.Weather
+import com.gmail.klepikovmichael174.project1.domain.GetTopWeatherUseCase
+import com.gmail.klepikovmichael174.project1.extensions.launchWithErrorHandler
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import moxy.MvpPresenter
 import moxy.MvpView
+import moxy.presenterScope
 import moxy.viewstate.strategy.*
+import javax.inject.Inject
 
-class TopCitiesPresenter : MvpPresenter<TopCitiesView>() {
+class TopCitiesPresenter @Inject constructor(
+    private val getTopWeatherUseCase: GetTopWeatherUseCase
+    ) : MvpPresenter<TopCitiesView>() {
 
-    private var weathers: List<Weather> = listOf(
-        Weather("Челябинск", "Солнечно", "- 10 C"),
-        Weather("Магнитогорск", "Дождь", "- 12 C"),
-        Weather("Миасс", "Солнечно", "- 13 C"),
-        Weather("Екатеринбург", "Снег", "- 15 C"),
-        Weather("Новосибирск", "Солнечно", "- 8 C")
-    )
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        viewState.setWeathers(weathers)
+        viewState.showLoading(isShow = true)
+        presenterScope.launchWithErrorHandler(block = {
+            val weathers = getTopWeatherUseCase()
+            viewState.setWeathers(weathers)
+            viewState.showLoading(isShow = false)
+        }, onError = {
+            viewState.showLoading(isShow = false)
+        })
     }
 
     fun onCityClick(weather: Weather) {
@@ -29,6 +39,8 @@ class TopCitiesPresenter : MvpPresenter<TopCitiesView>() {
     }
 }
 
+
+
 interface TopCitiesView : MvpView {
 
     @StateStrategyType(AddToEndSingleStrategy::class)
@@ -39,4 +51,7 @@ interface TopCitiesView : MvpView {
 
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun openFavoritesScreen()
+
+    @StateStrategyType(AddToEndSingleStrategy::class)
+    fun showLoading(isShow: Boolean)
 }

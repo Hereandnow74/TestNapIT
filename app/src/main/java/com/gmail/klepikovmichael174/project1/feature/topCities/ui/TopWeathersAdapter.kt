@@ -34,8 +34,6 @@ class TopWeathersAdapter(private val onCityClick: (Weather) -> Unit) :
             onCityClick(item)
         }
         holder.topCitiesName.text = item.cityName
-        holder.topCitiesWeather.text = item.cityWeath
-        holder.topCitiesTemperature.text = item.cityTemp
 
     }
 

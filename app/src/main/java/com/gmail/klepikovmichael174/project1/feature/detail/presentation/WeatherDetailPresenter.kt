@@ -6,7 +6,13 @@ import moxy.MvpPresenter
 import moxy.MvpView
 import moxy.viewstate.strategy.AddToEndSingleStrategy
 import moxy.viewstate.strategy.StateStrategyType
+import javax.inject.Inject
 
+class WeatherDetailPresenterFactory @Inject constructor(
+    private val favoritesDao: FavoritesDao
+) {
+    fun create(weather: Weather) = WeatherDetailPresenter(weather, favoritesDao)
+}
 class WeatherDetailPresenter(
     private val weather: Weather,
     private val favoritesDao: FavoritesDao

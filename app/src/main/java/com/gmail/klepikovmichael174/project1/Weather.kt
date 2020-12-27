@@ -6,4 +6,4 @@ import kotlinx.serialization.Serializable
 
 @Parcelize
 @Serializable
-data class Weather (val cityName: String, val cityWeath: String, val cityTemp: String) : Parcelable
+data class Weather(val cityName: String) : Parcelable

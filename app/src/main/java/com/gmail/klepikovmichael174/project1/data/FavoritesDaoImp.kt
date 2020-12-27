@@ -36,7 +36,6 @@ class FavoritesDaoImp(
     }
 
     override fun getAll(): List<Weather> = weathers
-
     override fun isInFavorites(weather: Weather): Boolean = weathers.contains(weather)
 
     companion object {

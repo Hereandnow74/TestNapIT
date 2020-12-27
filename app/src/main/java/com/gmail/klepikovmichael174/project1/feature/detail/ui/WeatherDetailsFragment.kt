@@ -8,13 +8,16 @@ import com.gmail.klepikovmichael174.project1.R
 import com.gmail.klepikovmichael174.project1.Weather
 import com.gmail.klepikovmichael174.project1.data.FavoritesDaoImp
 import com.gmail.klepikovmichael174.project1.feature.detail.presentation.WeatherDetailPresenter
+import com.gmail.klepikovmichael174.project1.feature.detail.presentation.WeatherDetailPresenterFactory
 import com.gmail.klepikovmichael174.project1.feature.detail.presentation.WeatherDetailView
 import com.gmail.klepikovmichael174.project1.feature.topCities.ui.TopCitiesFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_weather_details.*
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class WeatherDetailsFragment : MvpAppCompatFragment(R.layout.fragment_weather_details), WeatherDetailView {
 
     companion object {
@@ -29,13 +32,10 @@ class WeatherDetailsFragment : MvpAppCompatFragment(R.layout.fragment_weather_de
             }
     }
 
+    @Inject
+    lateinit var weatherDetailPresenterFactory: WeatherDetailPresenterFactory
     private val presenter: WeatherDetailPresenter by moxyPresenter {
-        WeatherDetailPresenter(
-            weather = arguments?.getParcelable(WEATHER)!!,
-            favoritesDao = FavoritesDaoImp(
-                requireContext().getSharedPreferences("data", Context.MODE_PRIVATE)
-            )
-        )
+        weatherDetailPresenterFactory.create(arguments?.getParcelable(WEATHER)!!)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,8 +62,6 @@ class WeatherDetailsFragment : MvpAppCompatFragment(R.layout.fragment_weather_de
 
     override fun setWeather(weather: Weather) {
         cityCheck.text = "Город: ${weather.cityName}"
-        weatherCheck.text = "Погода: ${weather.cityWeath}"
-        tempCheck.text = "Температура: ${weather.cityTemp}"
     }
 
     override fun setIsInFavorites(inFavorites: Boolean) {
