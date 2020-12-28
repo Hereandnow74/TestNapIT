@@ -27,6 +27,7 @@ class WeatherDetailPresenter(
         viewState.setIsInFavorites(isInFavorites)
     }
 
+
     fun onFavoritesClicked(){
         if (isInFavorites){
             favoritesDao.delete(weather)

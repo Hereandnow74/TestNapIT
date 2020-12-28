@@ -61,7 +61,11 @@ class WeatherDetailsFragment : MvpAppCompatFragment(R.layout.fragment_weather_de
     }
 
     override fun setWeather(weather: Weather) {
-        cityCheck.text = "Город: ${weather.cityName}"
+        cityCheck.text = "Город: \n${weather.cityName}"
+        tempCheck.text = "Температура: \n${weather.cityTemp} °C"
+        tempMaxCheck.text = "От: ${weather.cityMaxTemp}"
+        tempMinCheck.text = "До: ${weather.cityMinTemp}"
+        pressure.text = "Атмосферное давление: \n${weather.cityMinTemp} мм рт.ст."
     }
 
     override fun setIsInFavorites(inFavorites: Boolean) {

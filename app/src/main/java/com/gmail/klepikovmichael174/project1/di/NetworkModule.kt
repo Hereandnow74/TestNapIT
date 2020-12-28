@@ -18,6 +18,7 @@ import retrofit2.Retrofit
 import retrofit2.create
 import javax.inject.Singleton
 
+
 @Module
 @InstallIn(ApplicationComponent::class)
 class NetworkModule {

@@ -30,12 +30,6 @@ class TopCitiesFragment : MvpAppCompatFragment(R.layout.fragment_top_cities), To
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btnGoToSearch.setOnClickListener {
-            requireFragmentManager().beginTransaction()
-                .replace(R.id.container, SearchFragment())
-                .addToBackStack("SearchFragment")
-                .commit()
-        }
 
         btnGoToFavorites.setOnClickListener {
             presenter.onFavoritesClick()
